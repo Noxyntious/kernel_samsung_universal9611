@@ -1,8 +1,9 @@
+#include <soc/samsung/exynos-debug.h>
+
 #include "pmucal_system.h"
 #include "pmucal_rae.h"
 #ifdef CONFIG_FLEXPMU
 #include "pmucal_powermode.h"
-#include <soc/samsung/exynos-debug.h>
 
 unsigned int pmucal_sys_powermode[NUM_SYS_POWERDOWN] = {0xffffffff, };
 #endif
