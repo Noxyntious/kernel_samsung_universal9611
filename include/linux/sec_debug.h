@@ -350,13 +350,22 @@ extern void sec_debug_set_task_in_pm_suspend(uint64_t task);
 extern void sec_debug_set_task_in_sys_reboot(uint64_t task);
 extern void sec_debug_set_task_in_sys_shutdown(uint64_t task);
 extern void sec_debug_set_task_in_dev_shutdown(uint64_t task);
+#ifdef CONFIG_SEC_DEBUG
 extern void sec_debug_set_sysrq_crash(struct task_struct *task);
+#else
+#define sec_debug_set_sysrq_crash(a) do { } while (0)
+#endif
 extern void sec_debug_set_task_in_soft_lockup(uint64_t task);
 extern void sec_debug_set_cpu_in_soft_lockup(uint64_t cpu);
 extern void sec_debug_set_task_in_hard_lockup(uint64_t task);
 extern void sec_debug_set_cpu_in_hard_lockup(uint64_t cpu);
+#ifdef CONFIG_SEC_DEBUG
 extern void sec_debug_set_unfrozen_task(uint64_t task);
 extern void sec_debug_set_unfrozen_task_count(uint64_t count);
+#else
+#define sec_debug_set_unfrozen_task(a) do { } while (0)
+#define sec_debug_set_unfrozen_task_count(a) do { } while (0)
+#endif
 extern void sec_debug_set_task_in_sync_irq(uint64_t task, unsigned int irq, const char *name, struct irq_desc *desc);
 extern void sec_debug_set_device_shutdown_timeinfo(uint64_t start, uint64_t end, uint64_t duration, uint64_t func);
 extern void sec_debug_clr_device_shutdown_timeinfo(void);
