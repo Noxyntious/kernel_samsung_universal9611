@@ -1185,6 +1185,9 @@ static __init int init_domain(struct exynos_cpufreq_domain *domain,
 	if (val > domain->max_freq)
 		domain->max_freq = val;
 
+	/* Here is a good place to cheat on exynos-acme */
+	domain->min_freq = 208000;
+
 	if (of_property_read_bool(dn, "need-awake"))
 		domain->need_awake = true;
 
