@@ -13,7 +13,7 @@ echo 'Download antman and sync'
 bash <(curl -s "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman") -S
 echo 'Clone libarchive for bsdtar'
 git clone https://github.com/libarchive/libarchive || true
-#sudo apt install -y pkg-config m4 libtool automake autoconf
+sudo apt install -y pkg-config m4 libtool automake autoconf
 cd libarchive
 echo 'Build libarchive'
 bash build/autogen.sh
